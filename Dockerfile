@@ -1,7 +1,6 @@
-FROM node
+FROM node:8
 
 
-RUN NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin \
-    && sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
+RUN NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
 
 EXPOSE 41184
