@@ -1,7 +1,21 @@
-FROM node:8
+FROM node:8-alpine
 
+RUN apk add --no-cache -U --virtual .build-deps \
+        git \
+	python \
+	make \
+	g++ \
+ && npm config set user root \
+ && npm install -g joplin \
+ && apk del .build-deps
+RUN apk add --no-cache -U jq socat
+RUN mkdir -p /joplin/profile \
+ && chown node:node /joplin/profile
 
-RUN yarn global add joplin
+COPY runtime.sh /
+USER node
 
-
+VOLUME /joplin/profile
 EXPOSE 41184
+
+ENTRYPOINT ["/runtime.sh"]
