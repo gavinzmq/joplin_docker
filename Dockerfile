@@ -1,7 +1,7 @@
 FROM node:8
 
 
-RUN NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
+RUN yarn global add joplin
 
 
 EXPOSE 41184
