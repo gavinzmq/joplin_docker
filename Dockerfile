@@ -1,4 +1,4 @@
-FROM node:13.5.0-alpine3.10
+FROM node
 
 
 RUN NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin \
