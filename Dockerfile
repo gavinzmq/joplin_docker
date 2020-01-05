@@ -4,6 +4,4 @@ FROM node
 RUN NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin \
     && sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
 
-
-
 EXPOSE 41184
